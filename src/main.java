@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.math.*;
 import java.util.Random;
 public class main {
 
@@ -128,38 +127,220 @@ public class main {
             colCountBlue=0;
             colCountRed=0;
         }
-        //diag rossz
-        for (int i=0; i<5;i++){
-            for (int j=0; j < 5;j++) {
-                    for (int k = 0; k < 5; k++) {
-                        for (int l = 0; l < 5; l++) {
-                            if(Board[Math.abs(i-k)][Math.abs(j-l)] == 'R') {
-                                diagCountRed++;
-                                if (diagCountRed >= 8) {
-                                    win++;
-                                    winnerChar = 'B';
-                                }
-                            }else if(Board[Math.abs(i-k)][Math.abs(j-l)] == 'B') {
-                                diagCountBlue++;
-                                if (diagCountBlue >= 8) {
-                                    win++;
-                                    winnerChar = 'R';
-                                }
-                            }
+        //diag 3 long
+        for(int n = 0; n < 4; n++) {
+            if(n == 0) {
+                for(int i = 2, j = 0; i >= 0 && j <= 2; i--, j++) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
                         }
-
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
                     }
-                //System.out.println(diagCountBlue);
-                //System.out.println(diagCountRed);
-                diagCountRed=0;
+                }
                 diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else if (n == 1) {
+                for(int i = 2, j = 0; i <= 4 && j <= 2; i++, j++) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else if (n == 2) {
+                for(int i = 2, j = 4; i >= 0 && j >= 2; i--, j--) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else {
+                for(int i = 2, j = 4; i <= 4 && j >= 2; i++, j--) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
             }
         }
+        //diag 4 long
+        for(int n = 0; n < 4; n++) {
+            if(n == 0) {
+                for(int i = 3, j = 0; i >= 0 && j <= 3; i--, j++) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else if (n == 1) {
+                for(int i = 1, j = 0; i <= 4 && j <= 3; i++, j++) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else if (n == 2) {
+                for(int i = 3, j = 4; i >= 0 && j >= 1; i--, j--) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+            else {
+                for(int i = 1, j = 4; i <= 4 && j >= 1; i++, j--) {
+                    if (Board[i][j] == 'R') {
+                        diagCountRed++;
+                        if (diagCountRed>=3){
+                            win++;
+                            winnerChar='B';
+                        }
+                    }else if (Board[i][j] == 'B') {
+                        diagCountBlue++;
+                        if (diagCountBlue>=3){
+                            win++;
+                            winnerChar='R';
+                        }
+                    }
+                }
+                diagCountBlue=0;
+                diagCountRed=0;
+            }
+        }
+        //diag 5 long
+        for(int i = 0, j = 0; i <= 4 && j <= 4; i++, j++) {
+            if (Board[i][j] == 'R') {
+                diagCountRed++;
+                if (diagCountRed>=3){
+                    win++;
+                    winnerChar='B';
+                }
+            }else if (Board[i][j] == 'B') {
+                diagCountBlue++;
+                if (diagCountBlue>=3){
+                    win++;
+                    winnerChar='R';
+                }
+            }
+        }
+        diagCountBlue=0;
+        diagCountRed=0;
+        for(int i = 0, j = 4; i <= 4 && j >= 0; i++, j--) {
+            if (Board[i][j] == 'R') {
+                diagCountRed++;
+                if (diagCountRed>=3){
+                    win++;
+                    winnerChar='B';
+                }
+            }else if (Board[i][j] == 'B') {
+                diagCountBlue++;
+                if (diagCountBlue>=3){
+                    win++;
+                    winnerChar='R';
+                }
+            }
+        }
+        diagCountBlue=0;
+        diagCountRed=0;
 
         if (win >= 1) {
-            System.out.println(winnerChar + " wins");
-
+            if (winnerChar=='B') {
+                System.out.println("-----------");
+                System.out.println("|\\ - - - /|");
+                System.out.println("|-\\ - - /-|");
+                System.out.println("| B L U E |");
+                System.out.println("|-/W I N\\-|");
+                System.out.println("|/ - - - \\|");
+                System.out.println("-----------");
+            }else if (winnerChar=='R') {
+                System.out.println("-----------");
+                System.out.println("|\\ - - - /|");
+                System.out.println("|-\\ - - /-|");
+                System.out.println("|  R E D  |");
+                System.out.println("|-/W I N\\-|");
+                System.out.println("|/ - - - \\|");
+                System.out.println("-----------");
+            }
             return false;
+
         }
 
         return true;
